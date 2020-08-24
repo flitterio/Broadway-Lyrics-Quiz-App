@@ -4,158 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--<meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
   <title>Broadway Lyric Quiz App</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
     type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,500&display=swap" rel="stylesheet">
   <link href="app.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <header>
-    <h1>Broadway Lyric Quiz App</h1>
+    <h1>Are You a Broadway Lyric Star?</h1>
+    <section class= "group">
+      <h3 class="questionNum item"></h3>
+      <h3 class="currentScore item"></h3>
+    </section> <!--title, constant-->
   </header>
   <main aria-live="polite">
-    <div class="start-screen">
-      <p>Test your knowledge of musical theatre songs!</p>
-        <button type="button" id="start">Let's Go!</button>
-    </div>
-    <ul class="question-and-score">
-      <li id="question-number">
-        Question Number: 1/6
-      </li>
-      <li id="score-number">
-        Score: 0/6
-      </li>
-    </ul>
-    
-    <form id="question-form" class="question-form">
-        <fieldset>
-          <div class="question">
-            <legend>The rain in Spain stays mainly in the ____</legend>
-          </div>
-          <div class="options">
-            <div class="answers">
-              <div id="option-container-0">
-                <input type="radio" name="options" id="option1" value="grain" tabindex="1" required>
-                <label for="option1">grain</label>
-              </div>
-
-              <div id="option-container-1">
-                <input type="radio" name="options" id="option2" value="frame" tabindex="2" required>
-                <label for="option2">frame</label>
-              </div>
-
-              <div id="option-container-2">
-                <input type="radio" name="options" id="option3" value="plane" tabindex="3" required>
-                <label for="option3">plane</label>
-              </div>
-
-              <div id="option-container-3">
-                <input type="radio" name="options" id="option4" value="plain" tabindex="4" required>
-                <label for="option4">plain</label>
-              </div>
-              
-            </div>
-          </div>
-          <button type="submit" id="submit-answer-btn" tabindex="5">Submit</button>
-          <button class ="hidden" type="button" id="next-question-btn" tabindex="6">Next >></button>
-        </fieldset>
-
-        <div class="hidden">
-          const myQuestions = [
-            {
-              question: "The rain in Spain stays mainly in the ____",
-              answers: {
-                a: "grain",
-                b: "frame",
-                c: "plane",
-                d: "plain"
-              },
-              correctAnswer: "c"
-            },
-      
-            question: "Who’s that hiding in the treetops? It’s that ____ the jitterbug!",
-              answers: {
-                a: "rascal",
-                b: "bug",
-                c: "gangster",
-                d: "uncle"
-              },
-              correctAnswer: "a"
-            },
-      
-            question: "Everything’s coming up ___ for me and for ____",
-              answers: {
-                a: "roses, you",
-                b: "roses, Stew",
-                c: "flowers, Lou",
-                d: "sunshine, you"
-              },
-              correctAnswer: "a"
-            },
-      
-            question: "How do you solve a problem like ____ ",
-              answers: {
-                a: "Sophia",
-                b: "Maria",
-                c: "Anita",
-                d: "Florida"
-              },
-              correctAnswer: "b"
-            },
-      
-            question: So if you care defy me, look to the _____",
-              answers: {
-                a: "House of Pies",
-                b: "orange flies",
-                c: "western sky",
-                d: "country road"
-              },
-              correctAnswer: "c"
-            },
-      
-            question: "Why so silent, ____? Did you think that I had left you for good?",
-              answers: {
-                a: "good messieurs",
-                b: "des fleurs",
-                c: "gentlemen",
-                d: "dear old friends"
-              },
-              correctAnswer: "a"
-            },
-            ]
-            </div>
-
-        <div class="results">
-          <form id="js-restart-quiz">
-            <fieldset>
-              <div class="row">
-                <div class="col-12">
-                  <ledgend> Your Score is: _/5</ledgend>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <button type="button" id="restart">Take it Again</button>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-    </form>
+    <section> 
+      <h2></h2>
+        <h4></h4>
+        <p class="score"></p>
+        <form class="form"></form>
+    </section>
   </main>
+  </body>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
   <script src="app.js"></script>
-</body>
 
-
-<!--<div id="__genieContainer" style="all: initial;">
-  #shadow-root (open)
-    <style> @import "chrome-extension://jjfblogammkiefalfpafidabbnamoknm/build/inject.css";</style>
-  <div id="rmnGenieWrappingDiv" style="display: none;">
-    <div data-v-f6209b02 class="bbb-loading-spinner" style="display: none !important;">
-    </div>
-    <div id="component"></div>
-</div> -->
 </html>

@@ -1,6 +1,144 @@
 /* Your styles should be mobile-first and responsive */
-.hidden{
-  visibility: hidden;
+html{
+  background: url(bway-background.jpg) no-repeat center center fixed; /*displays full size background image*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Playfair Display', serif;
+}
+
+/*header section */
+header{ /*background for header*/
+  background-color:#dbd4d3e3;
+  margin: 100px 50px 10px 50px;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin:5px;
+}
+/*score and question updates*/
+h3{
+  font-size: 20px;
+  text-align: center;
+  margin: 5px;
+}
+.group{ /*adjust settings for score and current number */
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+/*main area for quiz */
+main { 
+  background-color: #dbd4d3e3;
+  padding: 20px;
+  margin: 0px 50px;
+  border-radius: 25px;
+}
+
+h2{
+  font-size: 24px;
+  text-align: center;
+}
+
+ label { /*multiple choice options */
+  font-size: 25px;
+  text-align: left !important;
+  margin: 10px;
+  
+
+}
+
+button, #submit-answer-btn{
+  border-radius: 10px; /*rounds corners of buttons*/
+  font-size: 25px;
+  font-weight: bold; 
+  margin: 5px;
+}
+
+/*Next button screen*/
+
+i{
+  color: #E83151;
+  font-size: 30px;
+  
+}
+
+/*end screen*/
+h4{
+  font-size: 30px;
+  margin: 5px 0px;
+}
+
+p{
+  font-size: 29px;
+}
+
+b{
+  color: #E83151;
+  font-size: 30px;
+}
+
+@media all and (min-width: 800px){ /*fullscreen design*/
+
+  .group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  header{
+    margin: 200px 300px 10px 300px;
+  }
+  main{
+    margin: 0px 300px;
+  }
+  h1{
+    font-size: 60px;
+  }
+
+  h2{
+    font-size: 40px;
+  }
+
+  h3{
+    font-size: 30px;
+  }
+
+  h4{
+    font-size: 40px;
+  }
+
+  i{
+    font-size: 60px;
+  }
+
+  label{
+    font-size: 35px;
+    padding: 20px 0px;
+  }
+
+  button, #submit-answer-btn{
+    font-size: 30px;
+  }
+
+  br{
+    margin-bottom: 50px;
+  }
+
+  p{
+    font-size: 35px;
+  }
+
+  b{
+    font-size: 40px;
+  }
 }
 /** 
   * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
