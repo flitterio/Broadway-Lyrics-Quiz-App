@@ -51,8 +51,6 @@ h2{
   font-size: 25px;
   text-align: left !important;
   margin: 10px;
-  
-
 }
 
 button, #submit-answer-btn{
@@ -67,7 +65,6 @@ button, #submit-answer-btn{
 i{
   color: #E83151;
   font-size: 30px;
-  
 }
 
 /*end screen*/
@@ -85,6 +82,10 @@ b{
   font-size: 30px;
 }
 
+input[type="radio"]{
+  margin: 15px 0;
+}
+
 @media all and (min-width: 800px){ /*fullscreen design*/
 
   .group{
@@ -94,21 +95,22 @@ b{
   }
 
   header{
-    margin: 200px 300px 10px 300px;
+    margin: 150px 200px 10px 200px;
   }
   main{
-    margin: 0px 300px;
+    margin: 0px 200px;
   }
   h1{
-    font-size: 60px;
+    font-size: 65px;
   }
 
   h2{
-    font-size: 40px;
+    font-size: 50px;
+    margin: 7px 0;
   }
 
   h3{
-    font-size: 30px;
+    font-size: 40px;
   }
 
   h4{
@@ -120,16 +122,12 @@ b{
   }
 
   label{
-    font-size: 35px;
-    padding: 20px 0px;
+    font-size: 50px;
   }
 
   button, #submit-answer-btn{
-    font-size: 30px;
-  }
-
-  br{
-    margin-bottom: 50px;
+    font-size: 40px;
+    margin-top: 10px;
   }
 
   p{

@@ -98,24 +98,18 @@ const store = {
 
 /* These functions handle events (submit, click, etc) */
 
-
-function renderQuiz(){
-  //render quiz on the DOM
-  console.log('renderQuiz ran');
-  startScreen();
-  //populateQuestion();
-  submitButton();
-  nextButton();
-
+function setUpPage(){
+  $('header').append(`<section class= "group">
+  <h3 class="questionNum item"></h3>
+  <h3 class="currentScore item"></h3>
+  </section>`);
 }
-
 function startScreen(){
   console.log('start screen rendered');//displays welcome message and button
-  $('h2').append('Test your knowledge of Musical Theatre Songs!');
-  $(".form").append('<div><button type="button" id="start-btn" tabindex="5">Start!</button></div>');
-  $('form').on('click', '#start-btn', event =>{
-    $(".form").empty(); //empty current question and answer
-    $("h2").empty();
+  $('main').append(`<h2>Test your knowledge of Musical Theatre Songs!</h2>`);
+  $('main').append(`<div><button type="button" id="start-btn" tabindex="5">Start!</button></div>`);
+  $('main').on('click', '#start-btn', event =>{
+    $("main").empty(); //erase current screen
     populateQuestion();
   })
   
@@ -127,23 +121,19 @@ function populateQuestion(){
   $('.currentScore').append('Score: ' + store.score + '/6'); //show current score
   $('.questionNum').append('Question Number: '+ (store.questionNumber +1)
   + '/6'); //current question Number
-  $('h2').append(store.questions[store.questionNumber].question); //display current question
-  //store.questionNumber ++
-  //console.log(store.questionNumber)
+  $('main').append(`<h2>` + store.questions[store.questionNumber].question + `</h2>`); //display current question
+  $('main').append(`<form class="form"></form>`); //creates form
   for( let i=0; i<store.questions[store.questionNumber].answers.length; i++){ //runs loop on array making radio buttons
-    $(".form").append('<input type="radio" name="options" value="' + store.questions[store.questionNumber].answers[i] + '"required><label for="' + store.questions[store.questionNumber].answers[i] +'">' + store.questions[store.questionNumber].answers[i] +'</label><br>');  
+    $("form").append('<input type="radio" name="options" value="' + store.questions[store.questionNumber].answers[i] + '"required><label for="' + store.questions[store.questionNumber].answers[i] +'">' + store.questions[store.questionNumber].answers[i] +'</label><br>');  
   }
   $(".form").append('<input type="submit" id="submit-answer-btn" tabindex="5"></button>');
   console.log('for loop complete');
 }
 
 function submitButton(){
-  $('section').on('submit', '.form', event =>{
+  $('main').on('submit', '.form', event =>{
     event.preventDefault(); //when submit is clicked 
     console.log('submit button clicked'); //check to see if submit was pressed
-    //var checked = $("input:checked").val();
-    //console.log(checked);
-    //if($("input").not(":checked") {
     var correct = "Correct!" //create variable with correct/incorrect message
     
     if($("input:checked").val()=== store.questions[store.questionNumber].correctAnswer){ //if answer is correct, increase score by 1 and update correct statment to relflect answer
@@ -156,23 +146,21 @@ function submitButton(){
       console.log('Incorrect');
       correct = "Your Answer Was Incorrect! The correct answer was: <br><i>" +store.questions[store.questionNumber].correctAnswer + "</i>" ;
     }
-    $('h3').empty();//emptys question and scores
+    $('h3').empty();//empties question and scores
     $(".form").empty(); //empty current question and answer
     $("h2").empty();
     store.questionNumber++; //increase store.questionNumber by 1
     $('h2').append(correct);
-    $(".form").append('<button type="button" id="next-btn" tabindex="6">Next Question</button>') //make the next button visible
-    
+    $("main").append('<button type="button" id="next-btn" tabindex="6">Next Question</button>') //make the next button visible
   });
 } 
 
 function nextButton(){
-  $('.form').on('click', '#next-btn', event =>{ //when next is clicked 
+  $('main').on('click', '#next-btn', event =>{ //when next is clicked 
     console.log('next button clicked');
     console.log('question number is: ' + (store.questionNumber + 1));
     console.log('length of array: ' + store.questions.length);
-   $(".form").empty(); //empty current question and answer
-    $("h2").empty();
+   $("main").empty(); //empty current question and answer
     
   if ((store.questionNumber + 1) > store.questions.length){
      endScreen();
@@ -180,24 +168,35 @@ function nextButton(){
   else{
     populateQuestion(); //run populateQuestion function to get next question
   }
-  }); //updates score
+  });
 }
+
 function renderEndScreen(){
   endScreen();
   restartQuiz();
 }
+
 function endScreen(){
   //displays the final score and a restart button
   console.log('end screen');
-  $('h4').append("Congratulations! You've finished the Quiz!");
-  $('.score').append("Your Final Score Was: <br><b>" + store.score +"/6</b>");
-  $('.form').append('<button type="button" id="restart">Restart Quiz</button>'); 
+  $('main').append(`<h4>Congratulations! You've finished the Quiz!</h4>`);
+  $('main').append(`<p class="score">Your Final Score Was: <br><b>` + store.score + `/6</b></p>`);
+  $('main').append('<button type="button" id="restart">Restart Quiz</button>'); 
 
-  $(".form").on('click', '#restart', event => // when restart is clicked, the page is refreshed and the quiz starts over
+  $("main").on('click', '#restart', event => // when restart is clicked, the page is refreshed and the quiz starts over
   { console.log('restart button clicked');
       location.reload();
   });
 }
 
+function renderQuiz(){
+  //render quiz on the DOM
+  console.log('renderQuiz ran');
+  startScreen();
+  //populateQuestion();
+  submitButton();
+  nextButton();
+  setUpPage();
+}
 
 $(renderQuiz);
